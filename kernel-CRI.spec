@@ -5,9 +5,9 @@
 
 %define		alt_kernel	CRI
 
-%define		_basever	2.6.24
-%define		_postver	.7
-%define		_rel		1
+%define		_basever	2.6.25
+%define		_postver	.2
+%define		_rel		0.1
 
 Summary:	The Linux kernel (the core of the Linux operating system)
 Name:		kernel-%{alt_kernel}
@@ -17,10 +17,10 @@ Epoch:		3
 License:	GPL v2
 Group:		Base/Kernel
 Source0:	http://www.kernel.org/pub/linux/kernel/v2.6/linux-%{_basever}.tar.bz2
-# Source0-md5:	3f23ad4b69d0a552042d1ed0f4399857
+# Source0-md5:	db95a49a656a3247d4995a797d333153
 %if "%{_postver}" != "%{nil}"
 Source1:	http://www.kernel.org/pub/linux/kernel/v2.6/patch-%{_basever}%{_postver}.bz2
-# Source1-md5:	0c1c5d6d8cd82e18d62406d2f34d1d38
+# Source1-md5:	c1d1c1542d676ce3143e5713bab2cca4
 %endif
 
 Source2:	kernel-CRI-module-build.pl
