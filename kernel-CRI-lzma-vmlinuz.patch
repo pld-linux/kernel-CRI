@@ -6,7 +6,7 @@ diff -urNp linux-2.6.25.orig/arch/x86/boot/compressed/Makefile linux-2.6.25/arch
  #
  
 -targets := vmlinux vmlinux.bin vmlinux.bin.gz head_$(BITS).o misc.o piggy.o
-+targets := vmlinux vmlinux.bin head_$(BITS).o misc.o piggy.o
++targets := vmlinux vmlinux.bin head_$(BITS).o piggy.o
  
  KBUILD_CFLAGS := -m$(BITS) -D__KERNEL__ $(LINUX_INCLUDE) -O2
  KBUILD_CFLAGS += -fno-strict-aliasing -fPIC
