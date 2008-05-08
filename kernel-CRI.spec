@@ -48,12 +48,6 @@ Requires:	geninitrd >= 2.57
 Requires:	module-init-tools >= 0.9.9
 Provides:	%{name}-up = %{epoch}:%{version}-%{release}
 Provides:	kernel = %{epoch}:%{version}-%{release}
-Provides:	kernel(realtime-lsm) = 0.1.1
-Provides:	kernel-misc-fuse
-Provides:	kernel-net-hostap = 0.4.4
-Provides:	kernel-net-ieee80211
-Provides:	kernel-net-ipw2100 = 1.1.3
-Provides:	kernel-net-ipw2200 = 1.0.8
 Provides:	module-info
 Conflicts:	e2fsprogs < 1.29
 Conflicts:	isdn4k-utils < 3.1pre1
