@@ -7,7 +7,7 @@
 
 %define		_basever	2.6.25
 %define		_postver	.2
-%define		_rel		0.1
+%define		_rel		1
 
 Summary:	The Linux kernel (the core of the Linux operating system)
 Name:		kernel-%{alt_kernel}
@@ -421,7 +421,6 @@ fi
 /lib/modules/%{kernel_release}/kernel/fs
 /lib/modules/%{kernel_release}/kernel/lib
 /lib/modules/%{kernel_release}/kernel/net
-/lib/modules/%{kernel_release}/kernel/sound
 %dir /lib/modules/%{kernel_release}/misc
 /lib/modules/%{kernel_release}/build
 %ghost /lib/modules/%{kernel_release}/modules.*
