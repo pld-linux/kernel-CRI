@@ -406,7 +406,9 @@ fi
 %ghost /boot/initrd-%{kernel_release}.gz
 %dir /lib/modules/%{kernel_release}
 %dir /lib/modules/%{kernel_release}/kernel
+%ifarch %{ix86}
 /lib/modules/%{kernel_release}/kernel/arch
+%endif
 /lib/modules/%{kernel_release}/kernel/crypto
 /lib/modules/%{kernel_release}/kernel/drivers
 /lib/modules/%{kernel_release}/kernel/fs
