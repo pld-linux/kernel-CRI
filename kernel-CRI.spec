@@ -166,14 +166,14 @@ find . '(' -name '*~' -o -name '*.orig' -o -name '.gitignore' ')' -print0 | xarg
 %build
 TuneUpConfigForIX86 () {
 %ifarch %{ix86}
-	%ifnarch i386
-	sed -i 's:CONFIG_M386=y:# CONFIG_M386 is not set:' $1
+	%ifarch i386
+	sed -i 's:# CONFIG_M386 is not set:CONFIG_M386=y:' $1
 	%endif
 	%ifarch i486
 	sed -i 's:# CONFIG_M486 is not set:CONFIG_M486=y:' $1
 	%endif
-	%ifarch i586
-	sed -i 's:# CONFIG_M586 is not set:CONFIG_M586=y:' $1
+	%ifnarch i586
+	sed -i 's:CONFIG_M586=y:# CONFIG_M586 is not set:' $1
 	%endif
 	%ifarch i686
 	sed -i 's:# CONFIG_M686 is not set:CONFIG_M686=y:' $1
