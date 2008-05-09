@@ -74,9 +74,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 # kernel release (used in filesystem and eventually in uname -r)
 # modules will be looked from /lib/modules/%{kernel_release}
-# _localversion is just that without version for "> localversion"
-%define		_localversion %{release}
-%define		kernel_release %{version}-%{alt_kernel}-%{_localversion}
+%define		kernel_release %{version}-%{alt_kernel}
 %define		_kernelsrcdir	/usr/src/linux-%{version}-%{alt_kernel}
 
 %define	CommonOpts	HOSTCC="%{__cc}" HOSTCFLAGS="-Wall -Wstrict-prototypes %{rpmcflags} -fomit-frame-pointer"
@@ -209,8 +207,7 @@ BuildConfig() {
 
 	echo "" > .config
 	cat $RPM_SOURCE_DIR/kernel-CRI-$Config.config >> .config
-	sed -i "/CONFIG_LOCALVERSION=.*/d" .config
-	echo "CONFIG_LOCALVERSION=\"-%{_localversion}\"" >> .config
+	sed -i "s/CONFIG_LOCALVERSION=.*/CONFIG_LOCALVERSION=\"\"/g" .config
 
 	TuneUpConfigForIX86 .config
 
