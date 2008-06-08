@@ -6,7 +6,7 @@
 %define		alt_kernel	CRI
 
 %define		_basever	2.6.25
-%define		_postver	.4
+%define		_postver	.5
 %define		_rel		1
 
 Summary:	The Linux kernel (the core of the Linux operating system)
@@ -20,7 +20,7 @@ Source0:	http://www.kernel.org/pub/linux/kernel/v2.6/linux-%{_basever}.tar.bz2
 # Source0-md5:	db95a49a656a3247d4995a797d333153
 %if "%{_postver}" != "%{nil}"
 Source1:	http://www.kernel.org/pub/linux/kernel/v2.6/patch-%{_basever}%{_postver}.bz2
-# Source1-md5:	f12f43dd78b765f3d1402aa9d2170cf5
+# Source1-md5:	7aa6fbadb357f92f26c9063ea6a490a4
 %endif
 
 Source2:	kernel-CRI-module-build.pl
