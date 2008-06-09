@@ -49,6 +49,7 @@ BuildRequires:	/sbin/depmod
 BuildRequires:	gcc >= 5:3.2
 # for hostname command
 BuildRequires:	net-tools
+BuildRequires:	p7lzma
 BuildRequires:	perl-base
 BuildRequires:	python
 BuildRequires:	python-modules
