@@ -212,7 +212,7 @@ BuildConfig() {
 	Config="%{kernel_config}"
 	KernelVer=%{kernel_release}
 	echo "Building config file using $Config.conf..."
-	cat $RPM_SOURCE_DIR/kernel-vanilla-$Config.config > %{defconfig}
+	cat $RPM_SOURCE_DIR/kernel-CRI-$Config.config > %{defconfig}
 	TuneUpConfigForIX86 %{defconfig}
 	sed -i "s/CONFIG_LOCALVERSION=.*/CONFIG_LOCALVERSION=\"\"/g" %{defconfig}
 }
