@@ -10,10 +10,6 @@
 
 %define		alt_kernel	CRI
 
-# kernel release (used in filesystem and eventually in uname -r)
-# modules will be looked from /lib/modules/%{kernel_release}
-# _localversion is just that without version for "> localversion"
-%define		_localversion %{release}
 %define		kernel_release %{version}-%{alt_kernel}
 
 Summary:	The Linux kernel (the core of the Linux operating system)
@@ -259,7 +255,6 @@ PreInstallKernel() {
 }
 
 KERNEL_BUILD_DIR=`pwd`
-echo "-%{_localversion}" > localversion
 
 KERNEL_INSTALL_DIR="$KERNEL_BUILD_DIR/build-done/kernel"
 rm -rf $KERNEL_INSTALL_DIR
@@ -437,7 +432,6 @@ fi
 %dir /lib/modules/%{kernel_release}
 /lib/modules/%{kernel_release}/build
 %{_kernelsrcdir}/Kbuild
-%{_kernelsrcdir}/localversion
 %{_kernelsrcdir}/arch/*/kernel/asm-offsets*
 %{_kernelsrcdir}/arch/*/kernel/sigframe*.h
 %{_kernelsrcdir}/drivers/lguest/lg.h
