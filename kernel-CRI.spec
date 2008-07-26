@@ -2,8 +2,8 @@
 # Conditional build:
 %bcond_without	source		# don't build kernel-vanilla-source package
 
-%define		_basever		2.6.25
-%define		_postver		.9
+%define		_basever		2.6.26
+%define		_postver		%{nil}
 %define		_rel			1
 
 %define		_enable_debug_packages			0
@@ -20,7 +20,7 @@ Epoch:		3
 License:	GPL v2
 Group:		Base/Kernel
 Source0:	http://www.kernel.org/pub/linux/kernel/v2.6/linux-%{_basever}.tar.bz2
-# Source0-md5:	db95a49a656a3247d4995a797d333153
+# Source0-md5:	5169d01c405bc3f866c59338e217968c
 %if "%{_postver}" != "%{nil}"
 Source1:	http://www.kernel.org/pub/linux/kernel/v2.6/patch-%{version}.bz2
 # Source1-md5:	493a0b7dd145d4f378ce3970e3690320
@@ -464,6 +464,7 @@ fi
 %{_kernelsrcdir}/init
 %{_kernelsrcdir}/ipc
 %{_kernelsrcdir}/kernel
+%exclude %{_kernelsrcdir}/kernel/bounds.c
 %{_kernelsrcdir}/lib
 %{_kernelsrcdir}/mm
 %{_kernelsrcdir}/net
