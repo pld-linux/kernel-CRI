@@ -33,8 +33,6 @@ Source4:	kernel-CRI-module-build.pl
 Source10:	kernel-CRI-x86.config
 Source11:	kernel-CRI-x86_64.config
 
-Patch50:	kernel-CRI-no_rd_in_proc_partitions.patch
-
 Patch100:	kernel-CRI-proc-pci.patch
 Patch101:	kernel-CRI-lzma-vmlinuz.patch
 Patch102:	kernel-CRI-squashfs.patch
@@ -156,8 +154,6 @@ kernel that is better tuned to your particular hardware.
 %if "%{_postver}" != "%{nil}"
 %{__bzip2} -dc %{SOURCE1} | patch -p1 -s
 %endif
-
-%patch50 -p1
 
 %patch100 -p1
 %patch101 -p1
