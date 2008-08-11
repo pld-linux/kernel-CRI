@@ -3,7 +3,7 @@
 %bcond_without	source		# don't build kernel-vanilla-source package
 
 %define		_basever		2.6.26
-%define		_postver		%{nil}
+%define		_postver		.2
 %define		_rel			1
 
 %define		_enable_debug_packages			0
@@ -23,7 +23,7 @@ Source0:	http://www.kernel.org/pub/linux/kernel/v2.6/linux-%{_basever}.tar.bz2
 # Source0-md5:	5169d01c405bc3f866c59338e217968c
 %if "%{_postver}" != "%{nil}"
 Source1:	http://www.kernel.org/pub/linux/kernel/v2.6/patch-%{version}.bz2
-# Source1-md5:	493a0b7dd145d4f378ce3970e3690320
+# Source1-md5:	5e0b0853ab6e968f7a09597c11b8e0c7
 %endif
 
 Source2:	kernel-CRI-autoconf.h
