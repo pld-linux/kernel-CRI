@@ -435,6 +435,7 @@ fi
 %{_kernelsrcdir}/arch/*/kernel/asm-offsets*
 %{_kernelsrcdir}/arch/*/kernel/sigframe*.h
 %{_kernelsrcdir}/drivers/lguest/lg.h
+%{_kernelsrcdir}/kernel/bounds.c
 %dir %{_kernelsrcdir}/scripts
 %dir %{_kernelsrcdir}/scripts/kconfig
 %{_kernelsrcdir}/scripts/Kbuild.include
