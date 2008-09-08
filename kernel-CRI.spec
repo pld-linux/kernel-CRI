@@ -3,7 +3,7 @@
 %bcond_without	source		# don't build kernel-vanilla-source package
 
 %define		_basever		2.6.26
-%define		_postver		.2
+%define		_postver		.4
 %define		_rel			1
 
 %define		_enable_debug_packages			0
@@ -23,7 +23,7 @@ Source0:	http://www.kernel.org/pub/linux/kernel/v2.6/linux-%{_basever}.tar.bz2
 # Source0-md5:	5169d01c405bc3f866c59338e217968c
 %if "%{_postver}" != "%{nil}"
 Source1:	http://www.kernel.org/pub/linux/kernel/v2.6/patch-%{version}.bz2
-# Source1-md5:	5e0b0853ab6e968f7a09597c11b8e0c7
+# Source1-md5:	217dafcf500332885b04af429c390ab4
 %endif
 
 Source2:	kernel-CRI-autoconf.h
@@ -113,9 +113,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define Features %(echo "%{__features}" | sed '/^$/d')
 
 %description
-This package contains the Linux kernel that is used to boot and run
-your system. It contains few device drivers for specific hardware.
-Most hardware is instead supported by modules loaded after booting.
+This package contains the Linux kernel that is used by ChRoot
+Installer (CRI).
 
 %package headers
 Summary:	Header files for the Linux kernel
