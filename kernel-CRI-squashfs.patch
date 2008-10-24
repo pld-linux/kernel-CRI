@@ -72,7 +72,7 @@ diff -x .gitignore -Nurp linux-2.6.27-rc4/fs/Makefile linux-2.6.27-rc4-squashfs3
 diff -x .gitignore -Nurp linux-2.6.27-rc4/fs/squashfs/inode.c linux-2.6.27-rc4-squashfs3.4/fs/squashfs/inode.c
 --- linux-2.6.27-rc4/fs/squashfs/inode.c	1970-01-01 01:00:00.000000000 +0100
 +++ linux-2.6.27-rc4-squashfs3.4/fs/squashfs/inode.c	2008-08-26 08:25:23.000000000 +0100
-@@ -0,0 +1,2173 @@
+@@ -0,0 +1,2174 @@
 +/*
 + * Squashfs - a compressed read only filesystem for Linux
 + *
@@ -100,6 +100,7 @@ diff -x .gitignore -Nurp linux-2.6.27-rc4/fs/squashfs/inode.c linux-2.6.27-rc4-s
 +#include <linux/module.h>
 +#include <linux/zlib.h>
 +#include <linux/fs.h>
++#include <linux/sched.h>
 +#include <linux/squashfs_fs_sb.h>
 +#include <linux/squashfs_fs_i.h>
 +#include <linux/buffer_head.h>
