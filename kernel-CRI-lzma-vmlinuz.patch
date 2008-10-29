@@ -15,16 +15,16 @@ diff -urNp linux-2.6.27.orig/arch/x86/boot/compressed/Makefile linux-2.6.27/arch
  $(obj)/vmlinux.bin.gz: $(obj)/vmlinux.bin.all FORCE
  	$(call if_changed,gzip)
 +$(obj)/vmlinux.bin.bz2: $(obj)/vmlinux.bin.all FORCE
-+      $(call if_changed,bzip2)
++	$(call if_changed,bzip2)
 +$(obj)/vmlinux.bin.lzma: $(obj)/vmlinux.bin.all FORCE
-+      $(call if_changed,lzma)
++	$(call if_changed,lzma)
  else
  $(obj)/vmlinux.bin.gz: $(obj)/vmlinux.bin FORCE
  	$(call if_changed,gzip)
 +$(obj)/vmlinux.bin.bz2: $(obj)/vmlinux.bin FORCE
-+      $(call if_changed,bzip2)
++	$(call if_changed,bzip2)
 +$(obj)/vmlinux.bin.lzma: $(obj)/vmlinux.bin FORCE
-+      $(call if_changed,lzma)
++	$(call if_changed,lzma)
  endif
  LDFLAGS_piggy.o := -r --format binary --oformat elf32-i386 -T
  
@@ -32,9 +32,9 @@ diff -urNp linux-2.6.27.orig/arch/x86/boot/compressed/Makefile linux-2.6.27/arch
  $(obj)/vmlinux.bin.gz: $(obj)/vmlinux.bin FORCE
  	$(call if_changed,gzip)
 +$(obj)/vmlinux.bin.bz2: $(obj)/vmlinux.bin FORCE
-+      $(call if_changed,bzip2)
++	$(call if_changed,bzip2)
 +$(obj)/vmlinux.bin.lzma: $(obj)/vmlinux.bin FORCE
-+      $(call if_changed,lzma)
++	$(call if_changed,lzma)
  
  LDFLAGS_piggy.o := -r --format binary --oformat elf64-x86-64 -T
  endif
@@ -2906,7 +2906,7 @@ diff -urNp linux-2.6.27.orig/scripts/Makefile.lib linux-2.6.27/scripts/Makefile.
 +# ---------------------------------------------------------------------------
 +
 +quiet_cmd_lzma = LZMA    $@
-+cmd_lzma = (p7lzma -9 -c $< ; $(size_append) $<) >$@
++cmd_lzma = (lzma -9 -c $< ; $(size_append) $<) >$@
 diff -urNp linux-2.6.27.orig/usr/initramfs_data.S linux-2.6.27/usr/initramfs_data.S
 --- linux-2.6.27.orig/usr/initramfs_data.S	2008-10-29 08:47:54.000000000 +0100
 +++ linux-2.6.27/usr/initramfs_data.S	2008-10-29 08:54:07.000000000 +0100
