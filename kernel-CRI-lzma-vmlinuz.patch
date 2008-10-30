@@ -2906,7 +2906,7 @@ diff -urNp linux-2.6.27.orig/scripts/Makefile.lib linux-2.6.27/scripts/Makefile.
 +# ---------------------------------------------------------------------------
 +
 +quiet_cmd_lzma = LZMA    $@
-+cmd_lzma = (lzma -9 -c $< ; $(size_append) $<) >$@
++cmd_lzma = (lzma -9 --format=alone -c $< ; $(size_append) $<) >$@
 diff -urNp linux-2.6.27.orig/usr/initramfs_data.S linux-2.6.27/usr/initramfs_data.S
 --- linux-2.6.27.orig/usr/initramfs_data.S	2008-10-29 08:47:54.000000000 +0100
 +++ linux-2.6.27/usr/initramfs_data.S	2008-10-29 08:54:07.000000000 +0100
