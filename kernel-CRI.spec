@@ -36,6 +36,8 @@ Source11:	kernel-CRI-x86_64.config
 Patch100:	kernel-CRI-proc-pci.patch
 Patch101:	kernel-CRI-lzma-vmlinuz.patch
 
+Patch200:	kernel-CRI-swiotlb.patch
+
 URL:		http://www.kernel.org/
 BuildRequires:	binutils >= 3:2.14.90.0.7
 BuildRequires:	/sbin/depmod
@@ -155,6 +157,8 @@ kernel that is better tuned to your particular hardware.
 
 %patch100 -p1
 %patch101 -p1
+
+%patch200 -p1
 
 # Fix EXTRAVERSION in main Makefile
 sed -i 's#EXTRAVERSION =.*#EXTRAVERSION = %{_postver}-%{alt_kernel}#g' Makefile
