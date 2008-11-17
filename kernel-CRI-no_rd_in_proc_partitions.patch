@@ -1,0 +1,10 @@
+--- linux-2.6.25/drivers/block/brd.c.orig	2008-04-17 04:49:44.000000000 +0200
++++ linux-2.6.25/drivers/block/brd.c	2008-05-18 01:18:28.381903343 +0200
+@@ -442,6 +442,7 @@
+ 	disk->fops		= &brd_fops;
+ 	disk->private_data	= brd;
+ 	disk->queue		= brd->brd_queue;
++	disk->flags |= GENHD_FL_SUPPRESS_PARTITION_INFO;
+ 	sprintf(disk->disk_name, "ram%d", i);
+ 	set_capacity(disk, rd_size * 2);
+ 
