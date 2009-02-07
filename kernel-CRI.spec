@@ -3,7 +3,7 @@
 %bcond_with	source		# don't build kernel-vanilla-source package
 
 %define		_basever		2.6.27
-%define		_postver		.8
+%define		_postver		.14
 %define		_rel			1
 
 %define		_enable_debug_packages			0
@@ -23,7 +23,7 @@ Source0:	http://www.kernel.org/pub/linux/kernel/v2.6/linux-%{_basever}.tar.bz2
 # Source0-md5:	b3e78977aa79d3754cb7f8143d7ddabd
 %if "%{_postver}" != "%{nil}"
 Source1:	http://www.kernel.org/pub/linux/kernel/v2.6/patch-%{version}.bz2
-# Source1-md5:	ec23e3dce22b23ca681199fe515f10fb
+# Source1-md5:	5ee26f54ad6f657d3f904fbbb4151a09
 %endif
 
 Source2:	kernel-CRI-autoconf.h
@@ -35,8 +35,6 @@ Source11:	kernel-CRI-x86_64.config
 
 Patch100:	kernel-CRI-proc-pci.patch
 Patch101:	kernel-CRI-lzma-vmlinuz.patch
-
-Patch200:	kernel-CRI-swiotlb.patch
 
 URL:		http://www.kernel.org/
 BuildRequires:	binutils >= 3:2.14.90.0.7
@@ -157,8 +155,6 @@ kernel that is better tuned to your particular hardware.
 
 %patch100 -p1
 %patch101 -p1
-
-%patch200 -p1
 
 # Fix EXTRAVERSION in main Makefile
 sed -i 's#EXTRAVERSION =.*#EXTRAVERSION = %{_postver}-%{alt_kernel}#g' Makefile
