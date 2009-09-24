@@ -3,7 +3,7 @@
 %bcond_with	source		# don't build kernel-vanilla-source package
 
 %define		_basever		2.6.27
-%define		_postver		.31
+%define		_postver		.35
 %define		_rel			1
 
 %define		_enable_debug_packages			0
@@ -23,7 +23,7 @@ Source0:	http://www.kernel.org/pub/linux/kernel/v2.6/linux-%{_basever}.tar.bz2
 # Source0-md5:	b3e78977aa79d3754cb7f8143d7ddabd
 %if "%{_postver}" != "%{nil}"
 Source1:	http://www.kernel.org/pub/linux/kernel/v2.6/patch-%{version}.bz2
-# Source1-md5:	adfb289efee5dce61e532678317c0b4c
+# Source1-md5:	6d49b54ff6ed54896db5d9e2ab7a6c0c
 %endif
 
 Source2:	kernel-CRI-autoconf.h
@@ -230,9 +230,10 @@ PreInstallKernel() {
 	install vmlinux $KERNEL_INSTALL_DIR/boot/vmlinux-$KernelVer
 %endif
 
-	%{__make} %CrossOpts modules_install \
+	%{__make} %CrossOpts modules_install firmware_install \
 		DEPMOD=%DepMod \
 		INSTALL_MOD_PATH=$KERNEL_INSTALL_DIR \
+		INSTALL_FW_PATH=$KERNEL_INSTALL_DIR/lib/firmware/$KernelVer \
 		KERNELRELEASE=$KernelVer
 
 	# You'd probabelly want to make it somewhat different
@@ -395,6 +396,7 @@ fi
 /boot/vmlinuz-%{kernel_release}
 /boot/System.map-%{kernel_release}
 %ghost %{initrd_dir}/initrd-%{kernel_release}.gz
+/lib/firmware/%{kernel_release}
 %dir /lib/modules/%{kernel_release}
 %dir /lib/modules/%{kernel_release}/kernel
 %ifarch %{ix86}
